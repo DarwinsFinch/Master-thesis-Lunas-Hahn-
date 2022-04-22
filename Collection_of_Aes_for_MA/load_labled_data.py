@@ -53,6 +53,9 @@ with open("/home/lunas/Documents/Uni/Masterarbeit/Data/labled_data_out.csv", "w"
     wr = csv.writer(f, delimiter=";")
     wr.writerows(list_of_data)
 #%%
+#do this in bash
+#cat labled_data_out.csv | cut -d";" -f1,2,4 > data_only_lables_labled.csv
+#tr ";" "," < data_only_lables_labled.csv > data_only_lables_labled_1.csv
 
 My_Data = [] 
 with open ("/home/lunas/Documents/Uni/Masterarbeit/Data/labled_data_out.csv") as f:
