@@ -71,6 +71,36 @@ contours1 = []
 for i in My_Data:
     contours1.append(np.array(i[4]))
 print(contours1[0])    
+#%%
+#remove cells at edges. This creates a list of indices for the cells that are located at the edges and should be removed later in the analysis
+import csv 
+Potentially_remove_these_cells = []
+count = 0
+for i in My_Data:
+    min_count = 0
+    max_count = 0
+    count = count + 1 
+    for e in i[2].strip("[]").split():
+        num = float(e.strip(",").strip("[]").strip("''"))
+        if num == 0:
+            min_count = min_count + 1
+        elif num == 512:
+            max_count = max_count + 1
+        if min_count or max_count >= 2:
+            #print(num)
+            entry = str(i[0] + "_" + i[1] + "_" + i[3])
+            #print(entry)
+            List_of_cells_at_the_edge = [entry, (count - 1)]
+            Potentially_remove_these_cells.append(List_of_cells_at_the_edge)
+            break
+    #print(i[2].strip("[]").split()[51].strip(",").strip("[]").strip("''"))
+print(len(Potentially_remove_these_cells))
+
+with open("/home/lunas/Documents/Uni/Masterarbeit/Data/Cells_at_the_edges_from_interpolate_contours_from_labeled_all_cells.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(Potentially_remove_these_cells)
+
+
 
 #%%
 #Calculate CV morphology features based on interpolated contours for each cell
