@@ -6,6 +6,7 @@ Created on Mon Jan 10 18:42:19 2022
 """
 
 #This script calculates the CV and PCA features for all cells
+#It also creates a list of indices for cells that are located at the edges to be removed
 #import packages
 import cv2
 from  matplotlib import pyplot as plt
