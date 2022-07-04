@@ -15,8 +15,7 @@ Further, the script creates a csv file that includes the cells name, label, numb
 
 Step 2:
 
-MA_Lunas_Hahn_construct_CV_and_PCA_features_for_all_cells.py
-MA_Lunas_Hahn_construct_CV_and_PCA_features_for_labeled_cells.py
+MA_Lunas_Hahn_get_single_cells_aligned_and_masked_for_labeled_and_unlabeled.py
 
 This is used to get the single cell images out of the whole slide image
 
